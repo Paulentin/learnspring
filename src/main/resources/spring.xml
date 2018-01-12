@@ -17,11 +17,11 @@
 
     <bean id="app" class="com.epam.zabara.core.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="consoleEventLogger"/>
         <constructor-arg>
             <map>
                 <entry key="INFO" value-ref="consoleEventLogger"/>
-                <entry key="ERROR" value-ref="combineEventLogger"/>
+                <entry key="ERROR" value-ref="combinedEventLogger"/>
             </map>
         </constructor-arg>
     </bean>
@@ -30,7 +30,7 @@
         <constructor-arg >
             <list>
                 <ref bean="consoleEventLogger"/>
-                <ref bean="fileEventLogger"/>
+                <ref bean="cacheFileEventLogger"/>
             </list>
         </constructor-arg>
     </bean>

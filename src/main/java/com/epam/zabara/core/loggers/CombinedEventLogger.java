@@ -4,9 +4,9 @@ import com.epam.zabara.core.event.Event;
 
 import java.util.Collection;
 
-public class CombinedEventLogger {
+public class CombinedEventLogger implements EventLogger {
 
-    Collection<EventLogger> loggers;
+    private Collection<EventLogger> loggers;
 
     public CombinedEventLogger(Collection<EventLogger> loggers) {
         this.loggers=loggers;

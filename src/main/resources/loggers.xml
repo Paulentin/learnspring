@@ -6,10 +6,10 @@
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
 
-    <bean id="eventLogger" class="com.epam.zabara.core.loggers.ConsoleEventLogger"/>
     <bean id="fileEventLogger" class="com.epam.zabara.core.loggers.FileEventLogger" init-method="init" abstract="true">
         <property name="fileName" value="log.txt"/>
     </bean>
+    <bean id="consoleEventLogger" class="com.epam.zabara.core.loggers.ConsoleEventLogger"/>
     <bean id="cacheFileEventLogger"
           class="com.epam.zabara.core.loggers.CacheFileEventLogger" parent="fileEventLogger" destroy-method="destroy">
         <property name="cacheSize" value="10"/>
