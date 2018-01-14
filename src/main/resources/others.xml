@@ -9,6 +9,9 @@
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
+        <constructor-arg>
+            <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+        </constructor-arg>
     </bean>
 
     <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>

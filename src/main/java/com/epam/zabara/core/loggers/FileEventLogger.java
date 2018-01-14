@@ -1,6 +1,5 @@
 package com.epam.zabara.core.loggers;
 
-
 import com.epam.zabara.core.event.Event;
 import org.apache.commons.io.FileUtils;
 
@@ -11,18 +10,15 @@ public class FileEventLogger implements EventLogger {
     private String fileName;
     private File file;
 
-
-    public FileEventLogger() {
-    }
-
-    public void init() {
-        file = new File(fileName);
-        file.canWrite();
-    }
-
-    public void setFileName(String fileName) {
+    public FileEventLogger(String fileName) {
         this.fileName = fileName;
-        file = new File(fileName);
+    }
+
+    public void init() throws IOException {
+        this.file = new File(fileName);
+        if (!file.canWrite()) {
+            throw new IOException("Can't write into file");
+        }
     }
 
     public void logEvent(Event event) {

@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class Event {
     private int id;
-
     private String msg;
     private Date date;
     private DateFormat df;
