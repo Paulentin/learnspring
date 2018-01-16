@@ -39,6 +39,10 @@ public class Event {
         this.date = date;
     }
 
+    public static boolean isDay() {
+        return false;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
