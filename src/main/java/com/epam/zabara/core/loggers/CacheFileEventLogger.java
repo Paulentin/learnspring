@@ -2,6 +2,7 @@ package com.epam.zabara.core.loggers;
 
 import com.epam.zabara.core.event.Event;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CacheFileEventLogger extends FileEventLogger {
@@ -11,6 +12,7 @@ public class CacheFileEventLogger extends FileEventLogger {
     public CacheFileEventLogger(String fileName, int cacheSize) {
         super(fileName);
         this.cacheSize = cacheSize;
+        cache = new ArrayList<Event>();
     }
 
     @Override

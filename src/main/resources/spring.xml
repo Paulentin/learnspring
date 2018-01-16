@@ -9,6 +9,7 @@
     <import resource="loggers.xml"/>
 
     <bean id="client" class="com.epam.zabara.core.beans.Client">
+        <property name="greeting" value="Hello there"/>
         <constructor-arg value="1"/>
         <constructor-arg value="Smith"/>
     </bean>
@@ -16,8 +17,14 @@
 
     <bean id="app" class="com.epam.zabara.core.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
-    </bean>
+        <constructor-arg ref="cacheFileEventLogger"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO" value-ref="consoleEventLogger"/>
+                <entry key="ERROR" value-ref="combineEventLogger"/>
 
+            </map>
+        </constructor-arg>
+    </bean>
 
 </beans>
